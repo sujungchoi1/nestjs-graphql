@@ -3,6 +3,10 @@ import { UniversitiesModule } from './universities/universities.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path/posix';
 import { GraphQLError, GraphQLFormattedError } from 'graphql';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -11,6 +15,10 @@ import { GraphQLError, GraphQLFormattedError } from 'graphql';
       // autoSchemaFile: true,
       autoSchemaFile: join(process.cwd(), 'schema.gql'),
     }),
+    AuthModule,
+    UsersModule,
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
