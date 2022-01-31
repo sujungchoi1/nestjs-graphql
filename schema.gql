@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type State {
+  id: Int!
+  name: String!
+}
+
+type City {
+  id: Int!
+  name: String!
+  state: State!
+}
+
+type University {
+  id: Int!
+  name: String!
+  city: City!
+}
+
+type Query {
+  university(id: Float!): University!
+  universities: [University!]!
+}
+
+type Mutation {
+  createUniversity(createUniversityInput: CreateUniversityInput!): University!
+  updateUniversity(updateUniversityInput: UpdateUniversityInput!): University!
+}
+
+input CreateUniversityInput {
+  id: Int!
+  name: String!
+  city: CreateCityInput!
+}
+
+input CreateCityInput {
+  id: Int!
+  name: String!
+  state: CreateStateInput!
+}
+
+input CreateStateInput {
+  id: Int!
+  name: String!
+}
+
+input UpdateUniversityInput {
+  id: Int!
+  name: String!
+  city: CreateCityInput!
+}
