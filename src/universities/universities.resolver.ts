@@ -39,11 +39,16 @@ export class UniversitiesResolver {
 
   @Mutation(() => University)
   updateUniversity(
-    @Args('updateUniversityInput') updateUniversityInput: UpdateUniversityInput,
+    @Args('updateUniversityInput') updateUniversityInput: CreateUniversityInput,
   ) {
-    return this.universitiesService.updateUniversity(
+    return this.universitiesService.update(
       updateUniversityInput.id,
       updateUniversityInput,
     );
+  }
+
+  @Mutation(() => University)
+  removeUniversity(@Args('id') id: number) {
+    return this.universitiesService.delete(id);
   }
 }

@@ -6,19 +6,18 @@ import { UpdateUniversityInput } from './dto/update-university.input';
 
 @Injectable()
 export class UniversitiesService {
-  private universities: University[] = [...DATA_RESPONSE.universities];
+  private readonly universities: University[] = [...DATA_RESPONSE.universities];
 
   create(createUniversityInput: CreateUniversityInput) {
     this.universities.push(createUniversityInput);
   }
 
-  findAll(): University[] {
-    return [...this.universities];
+  async findAll(): Promise<University[]> {
+    return await this.universities;
   }
 
   private findUniversity(id: number): [University, number] {
     const universityIndex = this.universities.findIndex((uni) => uni.id === id);
-    // console.log(id, universityIndex);
     const university = this.universities[universityIndex];
     if (!university) {
       throw new NotFoundException('Could not find university');
@@ -26,20 +25,26 @@ export class UniversitiesService {
     return [university, universityIndex];
   }
 
-  findOne(universityId: number) {
+  async findOne(id: number): Promise<University> {
     // without [0] it returns "0" then the object
-    const university = this.findUniversity(universityId)[0];
-    return { ...university };
+    // const university = this.findUniversity(universityId)[0];
+    // return { ...university };
+    return await this.universities.find((uni) => uni.id === id);
   }
 
-  updateUniversity(
-    uniId: number,
-    updateUniversityInput: UpdateUniversityInput,
-  ) {
-    console.log('getting called');
-    const [university, index] = this.findUniversity(uniId);
+  update(id: number, updateUniversityInput: CreateUniversityInput) {
+    const index = this.universities.findIndex(
+      (uni) => uni.id === updateUniversityInput.id,
+    );
+    // console.log('*** from service', id, index, updateUniversityInput);
     const updatedUniversity = { ...updateUniversityInput };
-    console.log(updatedUniversity);
     this.universities[index] = updatedUniversity;
+  }
+
+  delete(id: number) {
+    // const uniToDelete = this.universities.filter((uni) => uni.id !== id);
+    // return this.universities.delete(uniToDelete);
+    const [university, index] = this.findUniversity(id);
+    this.universities.splice(index, 1);
   }
 }
