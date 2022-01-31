@@ -1,3 +1,30 @@
+# University API 🏫
+  -  This API was implemented with NestJS and GraphQL to support the following queries:
+
+    - GET a list of universities
+    - GET university by Id
+    - CREATE university
+    - UPDATE university
+    - DELETE university
+
+## Getting Started
+   1. Clone this repository 
+      ```
+      git clone https://github.com/sujungchoi1/nestjs-graphql.git
+      ```
+   2. Install NPM dependencies
+      ```
+      npm install
+      ```
+   3. Start the application
+      ```
+      npm run start
+      
+      # watch mode
+      npm run start:dev
+      ```
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
