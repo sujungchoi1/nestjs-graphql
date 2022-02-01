@@ -23,7 +23,9 @@
       # watch mode
       npm run start:dev
       ```
-
+<br />     
+<img width="1113" alt="get-req-postman" src="https://user-images.githubusercontent.com/73366673/151892828-013b2e32-305e-414c-be1f-99af7e2d111c.png">
+<br />  
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
