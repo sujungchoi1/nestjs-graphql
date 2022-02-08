@@ -6,6 +6,9 @@
     - CREATE university
     - UPDATE university
     - DELETE university
+    
+    - GET a list of cities
+    - GET city by Id
 
 ## Getting Started
    1. Clone this repository 
