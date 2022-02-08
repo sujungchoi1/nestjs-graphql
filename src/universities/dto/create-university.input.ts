@@ -29,6 +29,6 @@ export class CreateUniversityInput {
   @Field()
   name: string;
 
-  @Field((type) => CreateCityInput)
+  @Field((type) => CreateCityInput, { nullable: true })
   city: CreateCityInput;
 }

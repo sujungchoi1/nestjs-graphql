@@ -22,6 +22,8 @@ type University {
 type Query {
   university(id: Float!): University!
   universities: [University!]!
+  cities: [University!]!
+  city(id: Float!): University!
 }
 
 type Mutation {
@@ -33,7 +35,7 @@ type Mutation {
 input CreateUniversityInput {
   id: Int!
   name: String!
-  city: CreateCityInput!
+  city: CreateCityInput
 }
 
 input CreateCityInput {
